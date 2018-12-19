@@ -1,0 +1,56 @@
+{
+  "name": "react-webpack",
+  "version": "1.0.0",
+  "description": "Simple react app use Jest, Webpack, Enzyme and Shallow",
+  "main": "index.js",
+  "author": "Prasanna KC Dommalapati",
+  "license": "ISC",
+  "scripts": {
+    "start": "webpack-dev-server --mode production --hot --open",
+    "dev": "webpack --mode development --progress",
+    "build": "webpack --mode production --progress",
+    "test": "jest",
+    "add-shrinkwrap": "npm shrinkwrap -dev && git add npm-shrinkwrap.json",
+    "clean": "rimraf node_modules && npm install"
+  },
+  "jest": {
+    "testRegex": "./src/__tests__/.*\\.(js|jsx)$",
+    "transform": {
+      ".*": "./node_modules/jest-babel-webpack-react",
+      "^.+\\.jsx$": "babel7-jest"
+    },
+    "setupFiles": [
+      "./src/enzyme.js"
+    ]
+  },
+  "dependencies": {
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.0",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/register": "^7.0.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^23.6.0",
+    "babel-loader": "^8.0.4",
+    "babel7-jest": "^1.0.1",
+    "css-loader": "^2.0.1",
+    "enzyme": "^3.8.0",
+    "enzyme-adapter-react-16": "^1.7.1",
+    "enzyme-to-json": "^3.3.5",
+    "file-loader": "^2.0.0",
+    "html-webpack-plugin": "^3.2.0",
+    "jest": "^23.6.0",
+    "jest-babel-webpack-react": "^0.1.4",
+    "jest-css-modules": "^1.1.0",
+    "node-sass": "^4.11.0",
+    "react-test-renderer": "^16.6.3",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.28.0",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10"
+  }
+}
