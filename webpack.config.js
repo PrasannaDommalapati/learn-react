@@ -1,7 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const sassRegex = /\.(scss|sass|css)$/;
-const jsxRegex = /\.(js|jsx)$/;
+const jsxRegex = /\.(js|jsx|mjs)$/;
 
 module.exports = (env, argv) => ({
   entry: './src/index.js',
@@ -16,10 +16,6 @@ module.exports = (env, argv) => ({
   },
   module: {
     rules: [
-      {
-        exclude: [/\.(js|jsx|mjs)$/, /\.json$/, /\.html$/, /\.scss$/, /\.css$/],
-        loader: 'file-loader'
-      },
       {
         test: jsxRegex,
         exclude: /node_modules/,

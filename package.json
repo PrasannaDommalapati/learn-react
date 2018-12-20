@@ -6,36 +6,40 @@
   "author": "Prasanna KC Dommalapati",
   "license": "ISC",
   "scripts": {
-    "start": "webpack-dev-server --mode production --hot --open",
+    "start": "webpack-dev-server --mode production --hot --open --progress --colors",
     "dev": "webpack --mode development --progress",
     "build": "webpack --mode production --progress",
-    "test": "jest",
+    "test": "jest --no-cache",
     "add-shrinkwrap": "npm shrinkwrap -dev && git add npm-shrinkwrap.json",
     "clean": "rimraf node_modules && npm install"
   },
   "jest": {
-    "testRegex": "./src/__tests__/.*\\.(js|jsx)$",
     "transform": {
-      ".*": "./node_modules/jest-babel-webpack-react",
-      "^.+\\.jsx$": "babel7-jest"
-    },
-    "setupFiles": [
-      "./src/enzyme.js"
-    ]
+      ".js$": "babel-7-jest",
+      ".jsx$": "babel-7-jest"
+    }
   },
   "dependencies": {
+    "babel-preset-react": "^6.24.1",
     "react": "^16.6.3",
     "react-dom": "^16.6.3"
   },
   "devDependencies": {
+    "@babel/cli": "^7.2.0",
     "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.2.0",
+    "@babel/preset-es2015": "^7.0.0-beta.53",
     "@babel/preset-react": "^7.0.0",
     "@babel/register": "^7.0.0",
-    "babel-core": "^7.0.0-bridge.0",
+    "babel-7-jest": "^21.3.3",
+    "babel-core": "^6.26.3",
     "babel-jest": "^23.6.0",
     "babel-loader": "^8.0.4",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-es2015": "^6.24.1",
     "babel7-jest": "^1.0.1",
+    "clean-webpack-plugin": "^1.0.0",
     "css-loader": "^2.0.1",
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.7.1",
@@ -46,7 +50,7 @@
     "jest-babel-webpack-react": "^0.1.4",
     "jest-css-modules": "^1.1.0",
     "node-sass": "^4.11.0",
-    "react-test-renderer": "^16.6.3",
+    "react-test-renderer": "^16.7.0",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
     "webpack": "^4.28.0",
