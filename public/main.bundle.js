@@ -558,7 +558,7 @@ var invokeGuardedCallbackImpl = function (name, func, context, a, b, c, d, e, f)
       // when we call document.createEvent(). However this can cause confusing
       // errors: https://github.com/facebookincubator/create-react-app/issues/3482
       // So we preemptively throw with a better message instead.
-      !(typeof document !== 'undefined') ? invariant(false, 'The `document` global was defined when React was initialized, but is not defined anymore. This can happen in a test environment if a component schedules an update from an asynchronous callback, but the test has already finished running. To solve this, you can either unmount the component at the end of your test (and ensure that any asynchronous operations get canceled in `componentWillUnmount`), or you can change the test itself to be asynchronous.') : void 0;
+      !(typeof document !== 'undefined') ? invariant(false, 'The `document` global was defined when React was initialized, but is not defined anymore. This can happen in a tests environment if a component schedules an update from an asynchronous callback, but the tests has already finished running. To solve this, you can either unmount the component at the end of your tests (and ensure that any asynchronous operations get canceled in `componentWillUnmount`), or you can change the tests itself to be asynchronous.') : void 0;
       var evt = document.createEvent('Event');
 
       // Keeps track of whether the user-provided callback threw an error. We
@@ -20495,7 +20495,7 @@ function warnNoop(publicInstance, callerName) {
 var ReactNoopUpdateQueue = {
   /**
    * Checks whether or not this composite component is mounted.
-   * @param {ReactClass} publicInstance The instance we want to test.
+   * @param {ReactClass} publicInstance The instance we want to tests.
    * @return {boolean} True if mounted, false otherwise.
    * @protected
    * @final
@@ -20934,7 +20934,7 @@ function defineRefPropWarningGetter(props, displayName) {
 /**
  * Factory method to create a new React element. This no longer adheres to
  * the class pattern, so do not use new to call it. Also, no instanceof check
- * will work. Instead test $$typeof field against Symbol.for('react.element') to check
+ * will work. Instead tests $$typeof field against Symbol.for('react.element') to check
  * if something is a React Element.
  *
  * @param {*} type
@@ -20975,7 +20975,7 @@ var ReactElement = function (type, key, ref, self, source, owner, props) {
 
     // To make comparing ReactElements easier for testing purposes, we make
     // the validation flag non-enumerable (where possible, which should
-    // include every environment we run tests in), so the test framework
+    // include every environment we run tests in), so the tests framework
     // ignores it.
     Object.defineProperty(element._store, 'validated', {
       configurable: false,
@@ -23633,7 +23633,7 @@ function updateLink (link, options, obj) {
  *
  * Instead, this function "fixes" the relative urls to be absolute according to the current page location.
  *
- * A rudimentary test suite is located at `test/fixUrls.js` and can be run via the `npm test` command.
+ * A rudimentary tests suite is located at `tests/fixUrls.js` and can be run via the `npm tests` command.
  *
  */
 

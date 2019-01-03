@@ -7,53 +7,55 @@
   "license": "ISC",
   "scripts": {
     "start": "webpack-dev-server --mode production --hot --open --progress --colors",
-    "dev": "webpack --mode development --progress",
     "build": "webpack --mode production --progress",
     "test": "jest --no-cache",
     "add-shrinkwrap": "npm shrinkwrap -dev && git add npm-shrinkwrap.json",
-    "clean": "rimraf node_modules && npm install"
+    "clean": "rimraf node_modules"
   },
   "jest": {
     "transform": {
-      ".js$": "babel-7-jest",
-      ".jsx$": "babel-7-jest"
+      "^.+\\.(js|jsx)$": "babel-jest",
+      ".+\\.(css|styl|less|sass|scss)$": "./node_modules/jest-css-modules-transform"
+    },
+    "moduleNameMapper": {
+      "\\.(scss|less|css)$": "identity-obj-proxy"
     }
   },
   "dependencies": {
-    "babel-preset-react": "^6.24.1",
     "react": "^16.6.3",
     "react-dom": "^16.6.3"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.0",
     "@babel/core": "^7.2.2",
+    "@babel/helper-plugin-utils": "^7.0.0",
     "@babel/preset-env": "^7.2.0",
     "@babel/preset-es2015": "^7.0.0-beta.53",
     "@babel/preset-react": "^7.0.0",
     "@babel/register": "^7.0.0",
-    "babel-7-jest": "^21.3.3",
-    "babel-core": "^6.26.3",
+    "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^23.6.0",
     "babel-loader": "^8.0.4",
     "babel-polyfill": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-es2015": "^6.24.1",
-    "babel7-jest": "^1.0.1",
     "clean-webpack-plugin": "^1.0.0",
     "css-loader": "^2.0.1",
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.7.1",
     "enzyme-to-json": "^3.3.5",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "file-loader": "^2.0.0",
     "html-webpack-plugin": "^3.2.0",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "^23.6.0",
     "jest-babel-webpack-react": "^0.1.4",
     "jest-css-modules": "^1.1.0",
+    "jest-css-modules-transform": "^2.1.1",
     "node-sass": "^4.11.0",
+    "path": "^0.12.7",
     "react-test-renderer": "^16.7.0",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
-    "webpack": "^4.28.0",
+    "webpack": "^4.28.3",
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.10"
   }
